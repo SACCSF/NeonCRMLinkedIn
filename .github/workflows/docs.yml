@@ -21,9 +21,6 @@ jobs:
           python-version: '3.12'
           allow-prereleases: true
 
-      - name: Install reqirements
-        run: pip install -r ./requirements.txt
-
       # ADJUST THIS: install all dependencies (including pdoc)
       - run: pip install pdoc
       # ADJUST THIS: build your documentation into docs/.
