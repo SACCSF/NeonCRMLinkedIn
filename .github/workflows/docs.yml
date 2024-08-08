@@ -35,7 +35,7 @@ jobs:
 
       - name: Install reqirements
         run: pip install -r ./requirements.txt
-
+      - run: pip install beautifulsoup4
       # ADJUST THIS: install all dependencies (including pdoc)
       - run: pip install pdoc
       # ADJUST THIS: build your documentation into docs/.
