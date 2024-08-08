@@ -10,10 +10,20 @@ permissions:
   contents: read
 
 jobs:
+  requirements:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Check requirements
+        uses: ekvanox/pipreqs-action@master
+        with:
+          PROJECT_PATH: .
+          REQUIREMENT_PATH: ./requirements.txt
+          COMMIT_MESSAGE: "Updated requirements.txt"
   # Build the documentation and upload the static HTML files as an artifact.
   build:
     runs-on: ubuntu-latest
-    #runs-on: self-hosted
+    needs: requirements
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,6 +36,9 @@ jobs:
       # ADJUST THIS: build your documentation into docs/.
       # We use a custom build script for pdoc itself, ideally you just run `pdoc -o docs/ ...` here.
       - run: pdoc *.py -o docs/ --logo "https://saccsf.com/wp-content/uploads/2015/05/saccsf-logo.jpg"
+
+      - name: Install reqirements
+        run: pip install -r ./requirements.txt
 
       - uses: actions/upload-pages-artifact@v3
         with:
