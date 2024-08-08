@@ -31,14 +31,14 @@ jobs:
           python-version: '3.12'
           allow-prereleases: true
 
+      - name: Install reqirements
+        run: pip install -r ./requirements.txt
+
       # ADJUST THIS: install all dependencies (including pdoc)
       - run: pip install pdoc
       # ADJUST THIS: build your documentation into docs/.
       # We use a custom build script for pdoc itself, ideally you just run `pdoc -o docs/ ...` here.
       - run: pdoc *.py -o docs/ --logo "https://saccsf.com/wp-content/uploads/2015/05/saccsf-logo.jpg"
-
-      - name: Install reqirements
-        run: pip install -r ./requirements.txt
 
       - uses: actions/upload-pages-artifact@v3
         with:
