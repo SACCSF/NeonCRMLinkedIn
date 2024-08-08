@@ -1,9 +1,9 @@
 name: Docs
 
 # build the documentation whenever there are new commits on main
-on: [push]
-   #schedule:
-   # - cron: '30 16 * * *'
+on:
+   schedule:
+    - cron: '30 16 * * *'
 
 # security: restrict permissions for CI jobs.
 permissions:
