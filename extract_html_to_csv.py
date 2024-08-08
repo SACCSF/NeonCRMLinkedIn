@@ -23,8 +23,10 @@ def remove_html_tags(text):
     3. Convert the element tree back to a string, extracting only the text content and ignoring the HTML tags.
 
     Example:
-        >>> clean_text = remove_html_tags('<p>Hello, <b>world</b>!</p>')
-        >>> print(clean_text)  # Output: "Hello, world!"
+    >>> html_text = '<p>Hello, <b>world</b>!</p>'
+    >>> clean_text = remove_html_tags(html_text)
+    >>> print(clean_text)
+    'Hello, world!'
     """
     parser = etree.HTMLParser()
     tree = etree.fromstring(text, parser)
