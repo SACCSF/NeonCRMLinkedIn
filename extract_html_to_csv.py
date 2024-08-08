@@ -23,8 +23,8 @@ def remove_html_tags(text):
     3. Convert the element tree back to a string, extracting only the text content and ignoring the HTML tags.
 
     Example:
-        clean_text = remove_html_tags('<p>Hello, <b>world</b>!</p>')
-        print(clean_text)  # Output: "Hello, world!"
+        >>> clean_text = remove_html_tags('<p>Hello, <b>world</b>!</p>')
+        >>> print(clean_text)  # Output: "Hello, world!"
     """
     parser = etree.HTMLParser()
     tree = etree.fromstring(text, parser)
@@ -44,9 +44,9 @@ def read_html_file(html_file_path):
 
     Detailed Steps:
     1. Read the contents of the specified HTML file.
-    2. Parse the HTML content using BeautifulSoup to find all <code> tags.
-    3. Extract and clean the data within the <code> tags by removing HTML tags.
-    4. Load the JSON data from the cleaned string found within the 16th <code> tag.
+    2. Parse the HTML content using BeautifulSoup to find all code tags.
+    3. Extract and clean the data within the code tags by removing HTML tags.
+    4. Load the JSON data from the cleaned string found within the 16th code tag.
     5. Save the loaded JSON data to a file named 'data.json' for debugging purposes.
     6. Iterate over the 'included' array in the JSON data:
         - For each item, extract the 'title', 'primarySubtitle', and 'bserpEntityNavigationalUrl' fields.
@@ -54,7 +54,7 @@ def read_html_file(html_file_path):
     7. Return the final DataFrame containing the extracted and processed data.
 
     Notes:
-    - This function assumes the 16th <code> tag contains the relevant JSON data.
+    - This function assumes the 16th code tag contains the relevant JSON data.
     - The JSON structure is expected to have an 'included' key containing the data array.
 
     Example:
