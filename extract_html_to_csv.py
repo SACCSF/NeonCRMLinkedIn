@@ -34,7 +34,7 @@ def remove_html_tags(text):
 
 def read_html_file(html_file_path):
     """
-    Reads an HTML file, extracts JSON data embedded within <code> tags,
+    Reads an HTML file, extracts JSON data embedded within code tags,
     and converts it into a Pandas DataFrame.
 
     Args:
@@ -67,7 +67,7 @@ def read_html_file(html_file_path):
     soup = BeautifulSoup(contents, 'html.parser')
     data = soup.findAll('code')
 
-    # remove <code> </code>
+    # remove code annotaion
     raw_data = []
     for d in data:
         raw_data.append(remove_html_tags(str(d)))
