@@ -60,8 +60,8 @@ def read_html_file(html_file_path):
     - The JSON structure is expected to have an 'included' key containing the data array.
 
     Example:
-        df = read_html_file('path/to/your/file.html')
-        print(df.head())
+    >>> df = read_html_file('path/to/your/file.html')
+    >>> print(df.head())
     """
     contents = Path(html_file_path).read_text()
     soup = BeautifulSoup(contents, 'html.parser')
