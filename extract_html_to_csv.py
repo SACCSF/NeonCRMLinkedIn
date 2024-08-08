@@ -154,8 +154,8 @@ def get_all_informations(directory_path):
     - Ensure that the `get_all_files_in_folder` and `read_html_file` functions are defined and properly implemented to handle the file reading and data extraction.
 
     Example:
-        df = get_all_informations('/path/to/directory')
-        print(df.head())
+    >>> df = get_all_informations('/path/to/directory')
+    >>> print(df.head())
     """
     files = get_all_files_in_folder(directory_path)
 
