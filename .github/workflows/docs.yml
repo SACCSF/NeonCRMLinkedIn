@@ -7,7 +7,7 @@ on: [push]
 
 # security: restrict permissions for CI jobs.
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   requirements:
