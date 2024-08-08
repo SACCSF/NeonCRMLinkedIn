@@ -121,8 +121,8 @@ def get_all_files_in_folder(path='.'):
         list: A list containing the full paths of all files found in the directory and its subdirectories.
 
     Example:
-        files = get_all_files_in_folder('/path/to/directory')
-        print(files)  # Output: ['/path/to/directory/file1.txt', '/path/to/directory/subdir/file2.txt', ...]
+    >>> files = get_all_files_in_folder('/path/to/directory')
+    >>> print(files)  # Output: ['/path/to/directory/file1.txt', '/path/to/directory/subdir/file2.txt', ...]
     """
     files_list = []
 
