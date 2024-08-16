@@ -64,7 +64,7 @@ def read_html_file(html_file_path):
     >>> print(df.head())
     """
     contents = Path(html_file_path).read_text()
-    soup = BeautifulSoup(contents, 'html.parser')
+    soup = BeautifulSoup(contents,'html.parser')
     data = soup.findAll('code')
 
     # remove code annotaion
@@ -72,8 +72,20 @@ def read_html_file(html_file_path):
     for d in data:
         raw_data.append(remove_html_tags(str(d)))
 
+
     # load specific data
-    js = json.loads(raw_data[16])
+    js = ""
+    tryAgain = False
+    try:
+        js = json.loads(raw_data[16])
+    except json.decoder.JSONDecodeError:
+        tryAgain = True
+
+    if tryAgain:
+        try:
+            js = json.loads(raw_data[14])
+        except json.decoder.JSONDecodeError:
+            print("Error while parsing document")
 
     # for debugging
     with open('data.json', 'w', encoding='utf-8') as f:
@@ -91,12 +103,25 @@ def read_html_file(html_file_path):
         j = js['included'][iteration]
 
         # Extract data with checks
-        title = j.get('title', {}).get('text', None)
-        subtitle = j.get('primarySubtitle', {}).get('text', None)
-        linkedinurl = j.get('bserpEntityNavigationalUrl', None)
+        try:
+            title = j.get('title', {}).get('text', None)
+        except AttributeError:
+            title = ""
+        try:
+            subtitle = j.get('primarySubtitle', {}).get('text', None)
+        except AttributeError:
+            subtitle = ""
+        try:
+            position = j.get('summary', {}).get('text', None)
+        except AttributeError:
+            position = ""
+        try:
+            linkedinurl = j.get('bserpEntityNavigationalUrl', None)
+        except AttributeError:
+            linkedinurl = ""
 
         # Create a new row DataFrame
-        new_row = {"name": title, "subtitle": subtitle, "linkedinurl": linkedinurl}
+        new_row = {"name": title, "subtitle": subtitle, "position": position, "linkedinurl": linkedinurl}
         row = pd.DataFrame([new_row])
 
         # Concatenate the new row to the main DataFrame
@@ -109,7 +134,7 @@ def read_html_file(html_file_path):
     return df
 
 
-def get_all_files_in_folder(path='.'):
+def get_all_files_in_folder(path):
     """
     Recursively retrieves all file paths from a given directory and its subdirectories.
 
@@ -158,10 +183,10 @@ def get_all_informations(directory_path):
     >>> print(df.head())
     """
     files = get_all_files_in_folder(directory_path)
-
     data = pd.DataFrame()
     for file in files:
-        df = read_html_file('./' + file)  # Read data from each HTML file
+        print("Processing file " + file)
+        df = read_html_file(file)  # Read data from each HTML file
         df = df.dropna()  # Drop rows with any NaN values
         data = pd.concat([data, df], ignore_index=True)  # Concatenate to the main DataFrame
 
@@ -172,8 +197,8 @@ def main():
     t1 = time.time()
     print(f"Main program started")
     # Specify the directory path you want to start from
-    merged_df = get_all_informations('files')
-    merged_df.to_csv('linkedin.csv')
+    merged_df = get_all_informations('peoples')
+    merged_df.to_json("linkedin.json", orient="records", force_ascii=False)
     print(f"Main program finished in {time.time() - t1} seconds")
 
 
