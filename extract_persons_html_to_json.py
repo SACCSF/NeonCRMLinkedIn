@@ -197,8 +197,8 @@ def main():
     t1 = time.time()
     print(f"Main program started")
     # Specify the directory path you want to start from
-    merged_df = get_all_informations('peoples')
-    merged_df.to_json("linkedin.json", orient="records", force_ascii=False)
+    merged_df = get_all_informations('persons')
+    merged_df.to_json("persons.json", orient="records", force_ascii=False)
     print(f"Main program finished in {time.time() - t1} seconds")
 
 

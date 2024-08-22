@@ -1,1 +1,31 @@
-[{"name":"Opacc Software AG","tagline":"Opacc ist der anerkannte Qualitätsführer für Enterprise Software.","description":"Opacc entwickelt seit 1988 eine eigene Enterprise Software Plattform in der Schweiz.\n\nDas Kernstück der Plattform bildet OpaccOXAS, welches sämtliche digitalen Unternehmens-Ressourcen wie Daten, Dokumente, Funktionen, Integrationen, etc., zentral zur Verfügung stellt.\n\nAuf dieser Grundlage stehen homogene, leistungsfähige und standardisierte Anwendungen zur Verfügung: OpaccERP, OpaccERP-MobileOffice (Service, Verkauf), OpaccEnterpriseCRM und OpaccEnterpriseShop. \n\nEinführung und Betreuung sämtlicher Anwendungen erfolgt direkt durch Opacc. Die garantierte Upgrade-Fähigkeit zu neuen Versionen wurde von den ERP-Anwendern in der Schweiz, Deutschland und Österreich mehrfach bestbewertet.\n\nOpacc beschäftigt über 200 Mitarbeitende in Rothenburg\/LU, Münchenstein\/BL und Nürnberg\/DE.","websiteUrl":"https:\/\/www.opacc.ch","foundedOn":1988,"headquarter":"Rothenburg","headquarterCountry":"CH","geographicArea":"Luzern","phone":"0413495100","specialities":["ERP","EnterpriseShop","OXAS","EnterpriseCRM","Software","Rothenburg","EnterpriseSoftware","Digitalisieren","Geschäftsprozesse","Münchenstein","neue-IT-Jobs","Wirtschaftsinformatik","Ausbildung","Weiterentwicklung"],"employeeCountRange_start":201,"employeeCountRange_end":500}]
+[
+  {
+    "name": "Opacc Software AG",
+    "tagline": "Opacc ist der anerkannte Qualitätsführer für Enterprise Software.",
+    "description": "Opacc entwickelt seit 1988 eine eigene Enterprise Software Plattform in der Schweiz.\n\nDas Kernstück der Plattform bildet OpaccOXAS, welches sämtliche digitalen Unternehmens-Ressourcen wie Daten, Dokumente, Funktionen, Integrationen, etc., zentral zur Verfügung stellt.\n\nAuf dieser Grundlage stehen homogene, leistungsfähige und standardisierte Anwendungen zur Verfügung: OpaccERP, OpaccERP-MobileOffice (Service, Verkauf), OpaccEnterpriseCRM und OpaccEnterpriseShop. \n\nEinführung und Betreuung sämtlicher Anwendungen erfolgt direkt durch Opacc. Die garantierte Upgrade-Fähigkeit zu neuen Versionen wurde von den ERP-Anwendern in der Schweiz, Deutschland und Österreich mehrfach bestbewertet.\n\nOpacc beschäftigt über 200 Mitarbeitende in Rothenburg\/LU, Münchenstein\/BL und Nürnberg\/DE.",
+    "websiteUrl": "https:\/\/www.opacc.ch",
+    "foundedOn": 1988,
+    "headquarter": "Rothenburg",
+    "headquarterCountry": "CH",
+    "geographicArea": "Luzern",
+    "phone": "0413495100",
+    "specialities": [
+      "ERP",
+      "EnterpriseShop",
+      "OXAS",
+      "EnterpriseCRM",
+      "Software",
+      "Rothenburg",
+      "EnterpriseSoftware",
+      "Digitalisieren",
+      "Geschäftsprozesse",
+      "Münchenstein",
+      "neue-IT-Jobs",
+      "Wirtschaftsinformatik",
+      "Ausbildung",
+      "Weiterentwicklung"
+    ],
+    "employeeCountRange_start": 201,
+    "employeeCountRange_end": 500
+  }
+]

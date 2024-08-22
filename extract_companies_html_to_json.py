@@ -81,11 +81,6 @@ def read_html_file(html_file_path):
     except json.decoder.JSONDecodeError:
         print("Error while parsing JSON data")
 
-    #breakpoint()
-    # for debugging
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(js, f, ensure_ascii=False, indent=4)
-
     # Initialize an empty DataFrame
     df = pd.DataFrame()
 
