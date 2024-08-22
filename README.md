@@ -33,7 +33,7 @@ Install dependencies
 ```
 
 Prepare and download html files
-- Go to [Linkedin](linkedin.com) and log in to your existing account
+- Go to [LinkedIn](linkedin.com) and log in to your existing account
 - Search with the following link https://www.linkedin.com/company/company_keyword/about/ for the company you want to have the information of 
 - Or search with the following link for the persons page to download https://www.linkedin.com/search/results/people/?keywords=company_keyword
 - Safe all files in the folder persons or companies
