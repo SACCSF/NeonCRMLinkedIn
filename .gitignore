@@ -162,7 +162,7 @@ cython_debug/
 .idea/
 
 # User data should not be commited
-/persons/*
-/companies/*
+/persons/*.html
+/companies/*.html
 persons.json
 companies.json
