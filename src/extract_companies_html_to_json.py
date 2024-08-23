@@ -54,18 +54,41 @@ def read_html_file(html_file_path: Path) -> pd.DataFrame:
         name = lines.get("name")
         tagline = lines.get("tagline")
         description = lines.get("description")
-        founded_on = lines.get("foundedOn", {}).get("year")
-        headquarter_city = lines.get("headquarter", {}).get("address", {}).get("city")
+        founded_on_dict = lines.get("foundedOn", {})
+        founded_on = (
+            founded_on_dict.get("year") if founded_on_dict is not None else None
+        )
+        headquarter = lines.get("headquarter", {})
+        headquarter_address = (
+            headquarter.get("address", {}) if headquarter is not None else {}
+        )
+        headquarter_city = (
+            headquarter_address.get("city") if headquarter_address is not None else None
+        )
         headquarter_country = (
-            lines.get("headquarter", {}).get("address", {}).get("country")
+            headquarter_address.get("country")
+            if headquarter_address is not None
+            else None
         )
         geographic_area = (
-            lines.get("headquarter", {}).get("address", {}).get("geographicArea")
+            headquarter_address.get("geographicArea")
+            if headquarter_address is not None
+            else None
         )
         website_url = lines.get("websiteUrl")
-        phone = lines.get("phone", {}).get("number")
-        employee_count_range_start = lines.get("employeeCountRange", {}).get("start")
-        employee_count_range_end = lines.get("employeeCountRange", {}).get("end")
+        phone_dict = lines.get("phone", {})
+        phone = phone_dict.get("number") if phone_dict is not None else None
+        employee_count_range = lines.get("employeeCountRange", {})
+        employee_count_range_start = (
+            employee_count_range.get("start")
+            if employee_count_range is not None
+            else None
+        )
+        employee_count_range_end = (
+            employee_count_range.get("end")
+            if employee_count_range is not None
+            else None
+        )
         specialities = lines.get("specialities")
 
         # Create a new row DataFrame

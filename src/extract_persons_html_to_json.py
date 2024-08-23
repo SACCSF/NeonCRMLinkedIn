@@ -60,9 +60,12 @@ def read_html_file(html_file_path: Path) -> pd.DataFrame:
 
     for lines in js["included"]:
         # Extract relevant fields from the JSON data
-        title = lines.get("title", {}).get("text")
-        subtitle = lines.get("primarySubtitle", {}).get("text")
-        position = lines.get("summary", {}).get("text")
+        title_dict = lines.get("title", {})
+        title = title_dict.get("text") if title_dict is not None else None
+        subtitle_dict = lines.get("primarySubtitle", {})
+        subtitle = subtitle_dict.get("text") if subtitle_dict is not None else None
+        position_dict = lines.get("summary", {})
+        position = position_dict.get("text") if position_dict is not None else None
         linkedin_url = lines.get("bserpEntityNavigationalUrl")
 
         # Create a new row DataFrame
@@ -103,7 +106,6 @@ def get_all_information(directory_path: Path) -> None:
     >>> get_all_information(directory_path)
     """
 
-    data = pd.DataFrame()
     directory_pathlib = Path(directory_path)
 
     for file in directory_pathlib.rglob("*.html"):
@@ -111,13 +113,11 @@ def get_all_information(directory_path: Path) -> None:
         df = read_html_file(file)
         rows = exclude_rows_with_x_nans(df, 2)
 
-        data = pd.concat([data, rows], axis=1)
-
-    data.to_json(
-        directory_pathlib.joinpath(f"{directory_pathlib.name}.json"),
-        orient="records",
-        force_ascii=False,
-    )
+        rows.to_json(
+            directory_pathlib.joinpath(f"{file.stem}.json"),
+            orient="records",
+            force_ascii=False,
+        )
 
 
 if __name__ == "__main__":

@@ -163,6 +163,6 @@ cython_debug/
 
 # User data should not be commited
 *.html
-persons.json
-companies.json
+persons/
+companies/
 .DS_Store
