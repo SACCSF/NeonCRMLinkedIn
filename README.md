@@ -17,31 +17,46 @@ We generate all code documentation automatically. This is automatically updated 
 Clone the project
 
 ```bash
-  git clone https://github.com/SACCSF/NeonCRMLinkedIn.git
+git clone https://github.com/SACCSF/NeonCRMLinkedIn.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd NeonCRMLinkedIn
+cd NeonCRMLinkedIn
+```
+Create virtual environment
+```bash
+# For MacOS and Linux
+python3 -m venv .venv
+source .venv/bin/activate
+
+# For Windows
+python -m venv .venv
+".venv/Scripts/activate"
 ```
 
 Install dependencies
 
 ```bash
-  pip install -r ./requirements.txt
+  pip install -r requirements.txt
 ```
 
 Prepare and download html files
 - Go to [LinkedIn](linkedin.com) and log in to your existing account
 - Search with the following link https://www.linkedin.com/company/company_keyword/about/ for the company you want to have the information of 
 - Or search with the following link for the persons page to download https://www.linkedin.com/search/results/people/?keywords=company_keyword
-- Safe all files in the folder persons or companies
+- Safe all files in a separate companies or persons folder
 
 Run the code
 ```bash
-  python ./extract_persons_html_to_json.py
-  python ./extract_companies_html_to_json.py
+# For MacOS and Linux
+python3 src/extract_persons_html_to_json.py path/to/persons/folder
+python3 src/extract_companies_html_to_json.py path/to/companies/folder
+
+# For Windows
+python src/extract_persons_html_to_json.py path/to/persons/folder
+python src/extract_companies_html_to_json.py path/to/companies/folder
 ```
 
 Grab all data out of the files companies.json and persons.json
