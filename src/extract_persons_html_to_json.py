@@ -13,27 +13,26 @@ ELEMENTS_WITH_RELEVANT_DATA = [14, 16]
 
 def read_html_file(html_file_path: Path) -> pd.DataFrame:
     """
-    Reads an HTML file and extracts person information from it.
+    Reads an HTML file and extracts person information.
 
     Args:
-        html_file_path (Path): The path to the HTML file to be processed.
+        html_file_path (Path): The path to the HTML file.
 
     Returns:
         pd.DataFrame: A DataFrame containing the extracted person information.
 
     Detailed Steps:
-    1. Read the contents of the HTML file using `read_text()` method.
-    2. Parse the HTML content using BeautifulSoup with the "html.parser" parser.
-    3. Find all the <code> elements in the parsed HTML content.
-    4. Remove the HTML tags from each <code> element using the `remove_html_tags` function.
-    5. Parse the JSON data from the relevant <code> element (determined by `ELEMENTS_WITH_RELEVANT_DATA`).
-    6. Extract the relevant fields from the JSON data and create a new row DataFrame.
+    1. Read the contents of the HTML file.
+    2. Parse the HTML content using BeautifulSoup.
+    3. Extract the JSON data from the HTML file.
+    4. Initialize an empty DataFrame.
+    5. Iterate over the JSON data and extract the relevant fields.
+    6. Create a new row DataFrame.
     7. Concatenate the new row to the main DataFrame.
 
     Example:
-    >>> html_file_path = Path('person.html')
-    >>> df = read_html_file(html_file_path)
-    >>> print(df.head())
+    >>> html_file_path = Path('data/file.html')
+    >>> read_html_file(html_file_path
     """
 
     contents = Path(html_file_path).read_text()
@@ -79,7 +78,6 @@ def read_html_file(html_file_path: Path) -> pd.DataFrame:
         # Concatenate the new row to the main DataFrame
         df = pd.concat([df, row], ignore_index=True)
 
-    # Display the final DataFrame
     return df
 
 
@@ -94,15 +92,13 @@ def get_all_information(directory_path: Path) -> None:
         None
 
     Detailed Steps:
-    1. Initialize an empty DataFrame to store the extracted data.
-    2. Iterate over all HTML files in the specified directory.
-    3. Read each HTML file and extract person information using the `read_html_file` function.
-    4. Exclude rows with more than 2 NaN values using the `exclude_rows_with_x_nans` function.
-    5. Concatenate the extracted data to the main DataFrame.
-    6. Save the extracted data to a JSON file in the same directory.
+    1. Iterate over all the files in the specified directory.
+    2. Read the HTML file using the `read_html_file` function.
+    3. Exclude rows with more than 2 NaN values using the `exclude_rows_with_x_nans` function.
+    4. Save the extracted information to a JSON file with the same name as the HTML file.
 
     Example:
-    >>> directory_path = Path('persons')
+    >>> directory_path = Path('data')
     >>> get_all_information(directory_path)
     """
 

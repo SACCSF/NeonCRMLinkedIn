@@ -11,6 +11,8 @@ We generate all code documentation automatically. This is automatically updated 
 
 [Documentation](https://saccsf.github.io/NeonCRMLinkedIn/)
 
+### Python Version
+3.12 (Specifically tested on MacOS using Python 3.12.3 and 3.12.4)
 
 ## Run Locally
 
