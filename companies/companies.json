@@ -1,0 +1,32 @@
+[
+  {
+    "name": "US Outreach",
+    "tagline": "Local Network & Global Expertise: Let Us Do The Outreach",
+    "description": "We are a team of seasoned international market experts with proven techniques to connect you with key decision makers in the United States.  We want to build bridges and open up channels of communication so you can make informed decisions and expand your global reach.\n\nWe offer the following services:\n\tBenchmarking --We reach out to experts and professionals who have an edge in your topic of interest.  We analyze data and news so we can inform you with the latest developments and innovations. \n\tExecutive Learning Expeditions --We organize and customize executive trips to meet with selected visionaries and decision makers.   You have a unique opportunity to start the dialogue face-to-face and to access premium information.\n\tGo 2 Market Research --We research the North American marketplace for you using the best data mining techniques and we introduce you to potential customers, distributors, and suppliers. \n\tPartnership Building --We connect you with qualified partners who provide added-value to your enterprise.  You enhance your offering and gain a fresh perspective on your business.   \n\tTalent Scouting --We help our clients discover hidden gems and sought-after experts through meticulous, handpicked selection.\n\n",
+    "websiteUrl": "http:\/\/www.usoutreach.com",
+    "foundedOn": 2017,
+    "headquarterCity": "Silicon Valley",
+    "headquarterCountry": "US",
+    "geographicArea": "CA",
+    "phone": null,
+    "specialities": [
+      "Business Intelligence",
+      "Innovation",
+      "Disruptive Technology ",
+      "Benchmarking",
+      "Market Mission",
+      "Technology Watch",
+      "Economic Development",
+      "Export",
+      "Business Development",
+      "Lead Generation",
+      "Luxury",
+      "Lifesciences",
+      "Industry 4.0",
+      "Sustainability",
+      "AI"
+    ],
+    "employeeCountRangeStart": 2,
+    "employeeCountRangeEnd": 10
+  }
+]
