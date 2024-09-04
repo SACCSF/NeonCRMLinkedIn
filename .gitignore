@@ -166,3 +166,7 @@ cython_debug/
 persons/
 companies/
 .DS_Store
+!peoples/USOutreach.html
+!peoples/USOutreach.json
+!companies/USOutreach.html
+!companies/USOutreach.json
