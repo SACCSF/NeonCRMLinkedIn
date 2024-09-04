@@ -60,31 +60,37 @@ Grab all data out of the files companies.json and persons.json. Example files ca
 ## Auto-generated Documentation
 The documentation is automatically generated and can be found [here](https://saccsf.github.io/NeonCRMLinkedIn/). The workflow is as follows:
 ```mermaid
-graph TD
-A[Push to main branch] --> B[Check requirements]
-B --> C[Build documentation]
-C --> D[Upload artifact]
-D --> E[Deploy to GitHub Pages]
+graph TD;
+    A[Push Event] --> B[Requirements Job]
+    B -->|runs-on: ubuntu-latest| C[Check Requirements]
+    C --> D[Update requirements.txt]
 
-subgraph Requirements Job
-    B1[Checkout code]
-    B2[Check requirements with pipreqs]
-end
+    B --> E[Build Documentation Job]
+    E -->|needs: requirements| F[Install Requirements]
+    F --> G[Install beautifulsoup4]
+    F --> H[Install pdoc]
+    F --> I[Build Documentation]
+    F --> J[Upload Pages Artifact]
 
-subgraph Build Job
-    C1[Checkout code]
-    C2[Setup Python]
-    C3[Install requirements]
-    C4[Install BeautifulSoup4]
-    C5[Install pdoc]
-    C6[Build documentation]
-    C7[Upload pages artifact]
-    C1 --> C2 --> C3 --> C4 --> C5 --> C6 --> C7
-end
+    E --> K[Deploy Job]
+    K -->|needs: build| L[Deploy to GitHub Pages]
 
-subgraph Deploy Job
-    D1[Deploy to GitHub Pages]
-end
+    subgraph Requirements Job
+        C
+        D
+    end
+
+    subgraph Build Documentation Job
+        F
+        G
+        H
+        I
+        J
+    end
+
+    subgraph Deploy Job
+        L
+    end
 ```
 
 ## Authors
